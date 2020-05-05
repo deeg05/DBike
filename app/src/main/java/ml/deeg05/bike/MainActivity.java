@@ -102,11 +102,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent keyevent) {
-        if ((keyCode == KeyEvent.KEYCODE_HEADSETHOOK || keyCode == KeyEvent.KEYCODE_C)
+        if ((keyCode == KeyEvent.KEYCODE_HEADSETHOOK || keyCode == KeyEvent.KEYCODE_MEDIA_PLAY)
                 && keyevent.getAction() == KeyEvent.ACTION_DOWN) {
             cycleTimestamp = System.currentTimeMillis();
             return true;
         }
+        if ((keyCode == KeyEvent.KEYCODE_HEADSETHOOK || keyCode == KeyEvent.KEYCODE_MEDIA_PLAY) && keyevent.getAction() == KeyEvent.KEYCODE_MEDIA_NEXT) {} // Stubs so you could peacefully listen to music
+        if ((keyCode == KeyEvent.KEYCODE_HEADSETHOOK || keyCode == KeyEvent.KEYCODE_MEDIA_PLAY) && keyevent.getAction() == KeyEvent.KEYCODE_MEDIA_PREVIOUS) {}
         return super.onKeyDown(keyCode, keyevent);
     }
 
