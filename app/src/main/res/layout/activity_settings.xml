@@ -15,7 +15,8 @@
         android:hint="@string/wheel_size_hint"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/speedUnitsSwitch" />
+        app:layout_constraintTop_toBottomOf="@+id/speedUnitsSwitch"
+        android:autofillHints="" />
 
     <Switch
         android:id="@+id/speedUnitsSwitch"
@@ -24,8 +25,8 @@
         android:layout_marginTop="16dp"
         android:checked="false"
         android:text="@string/speed_units"
-        android:textOff="km/h"
-        android:textOn="mph"
+        android:textOff="@string/kph"
+        android:textOn="@string/mph"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

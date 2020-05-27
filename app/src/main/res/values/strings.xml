@@ -6,4 +6,6 @@
     <string name="default_speed">0.0</string>
     <string name="wheel_size_hint">Input wheel size in mm</string>
     <string name="speed_units">Speed units</string>
+    <string name="mph">m/h</string>
+    <string name="kph">km/h</string>
 </resources>
