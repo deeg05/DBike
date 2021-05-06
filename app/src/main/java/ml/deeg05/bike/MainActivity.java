@@ -25,7 +25,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String WHEEL_SIZE_PREFS_KEY = "wheel_size";
+    public static final String WHEEL_SIZE_PREFS_KEY = "wheel_size"; 
     public static final String SPEED_IN_MPH_PREFS_KEY = "speed_in_mph";
     public static final String SHARED_PREFS_NAME = "SmartBikeSettings";
     public static final String CYCLE_RECEIVER_ACTION = "speed_received";
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView currentSpeedTextView;
 
+    // Update speed display using broadcast
     private BroadcastReceiver wheelCycleReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private void registerCheckStoppedTimer() {
         long interval = 10;  // ms
         checkStoppedTimer = new Timer();
+        // Timer task for calculating current speed
         checkStoppedTimer.schedule(new TimerTask() {
             long lastCycleTimestamp = 0;
             @Override
@@ -101,13 +103,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Headphone key event
     public boolean onKeyDown(int keyCode, KeyEvent keyevent) {
         if ((keyCode == KeyEvent.KEYCODE_HEADSETHOOK || keyCode == KeyEvent.KEYCODE_MEDIA_PLAY)
                 && keyevent.getAction() == KeyEvent.ACTION_DOWN) {
             cycleTimestamp = System.currentTimeMillis();
             return true;
         }
-        if ((keyCode == KeyEvent.KEYCODE_HEADSETHOOK || keyCode == KeyEvent.KEYCODE_MEDIA_PLAY) && keyevent.getAction() == KeyEvent.KEYCODE_MEDIA_NEXT) {} // Stubs so you could peacefully listen to music
+        // Stubs for music player
+        if ((keyCode == KeyEvent.KEYCODE_HEADSETHOOK || keyCode == KeyEvent.KEYCODE_MEDIA_PLAY) && keyevent.getAction() == KeyEvent.KEYCODE_MEDIA_NEXT) {}
         if ((keyCode == KeyEvent.KEYCODE_HEADSETHOOK || keyCode == KeyEvent.KEYCODE_MEDIA_PLAY) && keyevent.getAction() == KeyEvent.KEYCODE_MEDIA_PREVIOUS) {}
         return super.onKeyDown(keyCode, keyevent);
     }
